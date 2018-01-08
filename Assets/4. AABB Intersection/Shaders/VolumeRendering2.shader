@@ -16,6 +16,10 @@ Properties
     _MaxY("MaxY", Range(0, 1)) = 1.0
     _MinZ("MinZ", Range(0, 1)) = 0.0
     _MaxZ("MaxZ", Range(0, 1)) = 1.0
+
+    [Header(Variable)]
+    [KeywordEnum(VARIABLE_LENGTH, FIXED_LENGTH)] 
+    _RAY("Ray Method", Float) = 0
 }
 
 CGINCLUDE
@@ -85,7 +89,13 @@ fixed4 frag(v2f i) : SV_Target
     ray.dir = localDir;
     intersection(ray);
 
+#ifdef _RAY_FIXED_LENGTH
+    float dt = 1.0 / _Iteration;
+    float time = 0.0;
+    float3 localStep = localDir * dt;
+#else
     float3 localStep = localDir * ray.tmax / _Iteration;
+#endif
     float3 localPos = i.localPos;
     fixed4 output = 0.0;
 
@@ -94,6 +104,10 @@ fixed4 frag(v2f i) : SV_Target
     {
         output += (1.0 - output.a) * sample(localPos + 0.5) * _Intensity;
         localPos += localStep;
+#ifdef _RAY_FIXED_LENGTH
+        time += dt;
+        if (time > ray.tmax) break;
+#endif
     }
 
     return _Color * output;
@@ -121,6 +135,7 @@ Pass
     CGPROGRAM
     #pragma vertex vert
     #pragma fragment frag
+    #pragma multi_compile _RAY_VARIABLE_LENGTH _RAY_FIXED_LENGTH
     ENDCG
 }
 
