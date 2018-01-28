@@ -64,17 +64,17 @@ void intersection(inout Ray ray)
     ray.tmax = min(tmax2.x, tmax2.y);
 }
 
-inline fixed4 sampleVolume(float3 pos)
+inline fixed sampleVolume(float3 pos)
 {
     fixed x = step(pos.x, _MaxX) * step(_MinX, pos.x);
     fixed y = step(pos.y, _MaxY) * step(_MinY, pos.y);
     fixed z = step(pos.z, _MaxZ) * step(_MinZ, pos.z);
-    return tex3D(_Volume, pos) * (x * y * z);
+    return tex3D(_Volume, pos).a * (x * y * z);
 }
 
 inline fixed4 transferFunction(float t)
 {
-    return tex2D(_Transfer, float2(t, 0.1));
+    return tex2D(_Transfer, float2(t, 0));
 }
 
 v2f vert(appdata v)
@@ -109,11 +109,9 @@ fixed4 frag(v2f i) : SV_Target
     [loop]
     for (int i = 0; i < _Iteration; ++i)
     {
-        float volume = sampleVolume(localPos + 0.5);
-        float4 value = transferFunction(volume);
-        value.a *= volume;
-        value.rgb *= value.a;
-        output += (1.0 - output.a) * value * _Intensity;
+        fixed volume = sampleVolume(localPos + 0.5);
+        fixed4 color = transferFunction(volume) * volume * _Intensity;
+        output += (1.0 - output.a) * color;
         localPos += localStep;
 #ifdef _RAY_FIXED_LENGTH
         time += dt;

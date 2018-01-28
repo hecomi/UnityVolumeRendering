@@ -4,7 +4,8 @@ using UnityEditor.Experimental.AssetImporters;
 using System;
 using System.IO;
 
-[ScriptedImporter(1, "raw")]
+// Now using PvmRawImporter2 in "6. Gradient" section.
+// [ScriptedImporter(1, "raw")]
 public class PvmRawImporter : ScriptedImporter
 {
     public enum Bits

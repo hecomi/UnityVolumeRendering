@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: VolumeRendering4
+  m_Shader: {fileID: 4800000, guid: 68171fb2942b24453899afe1ab89ecf4, type: 3}
+  m_ShaderKeywords: _RAY_FIXED_LENGTH
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Transfer:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Volume:
+        m_Texture: {fileID: 11700000, guid: f1575efba4a7b431794ceffc3f5015ee, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AlphaIntensity: 0.05
+    - _Ambient: 0.198
+    - _BlendDst: 10
+    - _BlendSrc: 5
+    - _ColorEnhance: 2.83
+    - _ColorIntensity: 3
+    - _Diffuse: 3.63
+    - _Intensity: 0.059
+    - _Iteration: 200
+    - _MaxX: 1
+    - _MaxY: 0.886
+    - _MaxZ: 1
+    - _MinX: 0
+    - _MinY: 0.446
+    - _MinZ: 0
+    - _RAY: 1
+    - _Shadow: 2.2
+    m_Colors: []

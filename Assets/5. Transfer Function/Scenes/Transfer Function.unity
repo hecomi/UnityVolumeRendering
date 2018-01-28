@@ -178,7 +178,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!28 &659285897
+--- !u!28 &392845324
 Texture2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -210,7 +210,7 @@ Texture2D:
   m_LightmapFormat: 0
   m_ColorSpace: 1
   image data: 400
-  _typelessdata: 007200ff007200ff007200ff007200ff007200ff007200ff007200ff007200ff007200ff007200ff007200ff007200ff097200ff2d7200ff517200ff767200ff967200ff997200ff9c7200ff9f7200ffa27200ffa57200ffa87200ffab7200ffae7200ffb17200ffb47200ffb77200ffba7200ffbd7200ffc07200ffc37200ffc67200ffcd7200ffda7200ffe78e00e9f5ee009cffff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008e
+  _typelessdata: 007200ff007200ff007200ff007200ff007200ff007200ff007200ff007200ff007200ff007200ff007200ff007200ff097200ff2d7200ff517200ff767200ff967200ff997200ff9c7200ff9f7200ffa27200ffa57200ffa87200ffab7200ffae7200ffb17200ffb47200ffb77200ffba7200ffbd7200ffc07200ffc37200ffc67200ffcd7200ffda7200ffe77200fff5d500b0ffff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008effff008e
   m_StreamData:
     offset: 0
     size: 0
@@ -234,7 +234,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Transfer:
-        m_Texture: {fileID: 659285897}
+        m_Texture: {fileID: 392845324}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Volume:
@@ -243,10 +243,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Blend: 1
-    - _BlendDst: 1
+    - _BlendDst: 10
     - _BlendSrc: 5
-    - _Intensity: 0.1
-    - _Iteration: 100
+    - _Intensity: 0.05
+    - _Iteration: 200
     - _MaxX: 1
     - _MaxY: 1
     - _MaxZ: 1
@@ -362,7 +362,7 @@ MonoBehaviour:
     key5: {r: 0, g: 0, b: 0, a: 1}
     key6: {r: 0, g: 0, b: 0, a: 1}
     key7: {r: 0, g: 0, b: 0, a: 1}
-    ctime0: 22745
+    ctime0: 23323
     ctime1: 23708
     ctime2: 23901
     ctime3: 31997
@@ -381,6 +381,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 4
+  updateTextureInEveryFrame: 0
 --- !u!1 &2108303124
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,7 +457,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2108303124}
   m_LocalRotation: {x: 0.43343452, y: -0.5586913, z: 0.43201023, w: 0.5597908}
-  m_LocalPosition: {x: 0.99, y: 3.98, z: -0.25}
+  m_LocalPosition: {x: 0.99, y: 3.4, z: -0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

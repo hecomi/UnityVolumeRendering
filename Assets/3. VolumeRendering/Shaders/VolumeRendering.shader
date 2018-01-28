@@ -45,7 +45,7 @@ fixed sample(float3 pos)
     fixed x = step(pos.x, _MaxX) * step(_MinX, pos.x);
     fixed y = step(pos.y, _MaxY) * step(_MinY, pos.y);
     fixed z = step(pos.z, _MaxZ) * step(_MinZ, pos.z);
-    return tex3D(_Volume, pos).r * x * y * z;
+    return tex3D(_Volume, pos).a * x * y * z;
 }
 
 v2f vert(appdata v)

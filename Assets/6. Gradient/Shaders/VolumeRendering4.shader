@@ -1,13 +1,17 @@
-﻿Shader "VolumeRendering/VolumeRendering2"
+﻿Shader "VolumeRendering/VolumeRendering4"
 {
 
 Properties
 {
     [Header(Rendering)]
     _Volume("Volume", 3D) = "" {}
-    _Color("Color", Color) = (1, 1, 1, 1)
+    _Transfer("Transfer", 2D) = "" {}
     _Iteration("Iteration", Int) = 10
     _Intensity("Intensity", Range(0.0, 1.0)) = 0.1
+    _Ambient("Ambient", Range(0.0, 1.0)) = 0.1
+    _Shadow("Shadow", Range(0.0, 5.0)) = 2.0
+    [Enum(UnityEngine.Rendering.BlendMode)] _BlendSrc ("Blend Src", Float) = 5
+    [Enum(UnityEngine.Rendering.BlendMode)] _BlendDst ("Blend Dst", Float) = 10
 
     [Header(Ranges)]
     _MinX("MinX", Range(0, 1)) = 0.0
@@ -39,10 +43,12 @@ struct v2f
 };
 
 sampler3D _Volume;
-fixed4 _Color;
+sampler2D _Transfer;
 int _Iteration;
-fixed _Intensity;
+float _Intensity;
 fixed _MinX, _MaxX, _MinY, _MaxY, _MinZ, _MaxZ;
+float _Ambient;
+float _Shadow;
 
 struct Ray
 {
@@ -62,12 +68,17 @@ void intersection(inout Ray ray)
     ray.tmax = min(tmax2.x, tmax2.y);
 }
 
-fixed sample(float3 pos)
+inline fixed4 sampleVolume(float3 pos)
 {
     fixed x = step(pos.x, _MaxX) * step(_MinX, pos.x);
     fixed y = step(pos.y, _MaxY) * step(_MinY, pos.y);
     fixed z = step(pos.z, _MaxZ) * step(_MinZ, pos.z);
-    return tex3D(_Volume, pos).a * (x * y * z);
+    return tex3D(_Volume, pos) * (x * y * z);
+}
+
+inline fixed4 transferFunction(float t)
+{
+    return tex2D(_Transfer, float2(t, 0));
 }
 
 v2f vert(appdata v)
@@ -97,20 +108,27 @@ fixed4 frag(v2f i) : SV_Target
     float3 localStep = localDir * ray.tmax / _Iteration;
 #endif
     float3 localPos = i.localPos;
-    fixed4 output = 0.0;
+    float4 output = 0;
+    float3 lightDir = normalize(mul(unity_WorldToObject, _WorldSpaceLightPos0));
 
     [loop]
     for (int i = 0; i < _Iteration; ++i)
     {
-        output += (1.0 - output.a) * sample(localPos + 0.5) * _Intensity;
+        fixed4 volume = sampleVolume(localPos + 0.5);
+        fixed a = volume.a;
+        fixed3 normal = 2.0 * volume.rgb - 1.0;
+        fixed shadow = dot(lightDir, -normal);
+        fixed4 color = transferFunction(a) * a * _Intensity;
+        color.rgb *= _Ambient + (1.0 - shadow * _Shadow);
+        output += (1.0 - output.a) * color;
         localPos += localStep;
 #ifdef _RAY_FIXED_LENGTH
         time += dt;
-        if (time > ray.tmax) break;
+        if (time > ray.tmax || output.a > 0.95) break;
 #endif
     }
 
-    return _Color * output;
+    return output;
 }
 
 ENDCG
@@ -126,11 +144,11 @@ Tags
 
 Pass
 {
+    Tags { "LightMode" = "ForwardBase" }
+
     Cull Back
     ZWrite Off
-    ZTest LEqual
-    Blend SrcAlpha OneMinusSrcAlpha 
-    Lighting Off
+    Blend [_BlendSrc] [_BlendDst]
 
     CGPROGRAM
     #pragma vertex vert
