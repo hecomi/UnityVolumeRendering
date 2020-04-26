@@ -1,4 +1,4 @@
-﻿Shader "CloudLit"
+﻿Shader "CloudLitAnimation"
 {
 
 Properties
@@ -13,7 +13,6 @@ Properties
     [Header(Noise)]
     [Space(10)]
     _NoiseScale("NoiseScale", Range(0, 100)) = 5
-    _Radius("Radius", Range(0, 2)) = 1.0 
 
     [Header(Light)]
     [Space(10)]
@@ -83,9 +82,31 @@ inline float fbm(float3 p)
     return f;
 }
 
+// ref. https://www.iquilezles.org/www/articles/distfunctions/distfunctions.htm
+inline float smin(float d1, float d2, float k)
+{
+    float h = exp(-k * d1) + exp(-k * d2);
+    return -log(h) / k;
+}
+
+inline float sphere(float3 pos, float radius)
+{
+    return length(pos) - radius;
+}
+
+inline float torus(float3 pos, float2 radius)
+{
+    float2 r = float2(length(pos.xz) - radius.x, pos.y);
+    return length(r) - radius.y;
+}
+
 inline float densityFunction(float3 p)
 {	
-	return fbm(p * _NoiseScale) - length(p / _Radius);
+	float f = fbm(p * _NoiseScale);
+    float d1 = -sphere(p, 0.2) + f * 0.3;
+    float d2 = -torus(p, float2(0.36, 0.1)) + f * 0.2;
+    float blend = 0.5 + 0.5 * sin(_Time.z);
+    return lerp(d1, d2, blend);
 }
 
 v2f vert(appdata v)

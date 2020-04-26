@@ -83,8 +83,8 @@ float4 frag(v2f i) : SV_Target
 
     float3 worldPos = i.worldPos;
     float3 worldDir = normalize(worldPos - _WorldSpaceCameraPos);
-    float3 camToWorldPos = worldPos - _WorldSpaceCameraPos;
-    worldPos += (step - fmod(length(camToWorldPos), step)) * worldDir;
+    float jitter = hash(worldPos.x + worldPos.y * 10 + worldPos.z * 100 + _Time.x) * step;
+    worldPos += jitter * worldDir;
 
     float3 localPos = mul(unity_WorldToObject, float4(worldPos, 1.0));
     float3 localDir = mul(unity_WorldToObject, worldDir);
