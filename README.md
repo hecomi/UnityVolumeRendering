@@ -8,7 +8,7 @@ Unity でボリュームレンダリングを行うためのサンプルプロ�
 
 なお、ボリュームデータは再配布不可のため含まれていません。以下よりご自身でダウンロード後、RAW 形式に変換してプロジェクトにドラッグ&ドロップしてください。
 
-- [The Volume Library](http://lgdv.cs.fau.de/External/vollib/)
+- [The Volume Library](http://schorsch.efi.fh-nuernberg.de/data/volume/)
 
 
 ![Carp](https://raw.githubusercontent.com/wiki/hecomi/UnityVolumeRendering/carp.gif)
