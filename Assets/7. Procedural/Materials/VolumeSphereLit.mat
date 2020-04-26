@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CloudLit
-  m_Shader: {fileID: 4800000, guid: 20f15f4ee9c4b4253ad44ef47954b062, type: 3}
+  m_Name: VolumeSphereLit
+  m_Shader: {fileID: 4800000, guid: 94c8551aedb81c147998d08458877092, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -20,15 +20,12 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - _Absorption: 43.3
-    - _AbsorptionLight: 10
+    - _Absorption: 43.6
+    - _AbsorptionLight: 24.7
     - _Intensity: 0.1
-    - _LightStepScale: 0.5
     - _Loop: 32
     - _LoopLight: 6
-    - _NoiseScale: 8.1
-    - _Opacity: 71.5
-    - _OpacityLight: 50
-    - _Radius: 0.7
+    - _Opacity: 61.3
+    - _OpacityLight: 35.6
     m_Colors:
-    - _Color: {r: 0.6509434, g: 0.63204056, b: 0.5833927, a: 1}
+    - _Color: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}

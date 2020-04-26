@@ -20,7 +20,7 @@ struct appdata
 struct v2f
 {
     float4 vertex   : SV_POSITION;
-    float4 worldPos : TEXCOORD1;
+    float3 worldPos : TEXCOORD1;
 };
 
 float4 _Color;
@@ -48,7 +48,7 @@ float4 frag(v2f i) : SV_Target
     float3 worldDir = normalize(worldPos - _WorldSpaceCameraPos);
 
     // オブジェクト空間に変換
-    float3 localPos = mul(unity_WorldToObject, worldPos);
+    float3 localPos = mul(unity_WorldToObject, float4(worldPos, 1.0));
     float3 localDir = mul(unity_WorldToObject, worldDir);
 
     // オブジェクト空間でのレイのステップ長
