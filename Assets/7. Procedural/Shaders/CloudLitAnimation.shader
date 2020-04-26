@@ -83,12 +83,6 @@ inline float fbm(float3 p)
 }
 
 // ref. https://www.iquilezles.org/www/articles/distfunctions/distfunctions.htm
-inline float smin(float d1, float d2, float k)
-{
-    float h = exp(-k * d1) + exp(-k * d2);
-    return -log(h) / k;
-}
-
 inline float sphere(float3 pos, float radius)
 {
     return length(pos) - radius;
@@ -103,9 +97,17 @@ inline float torus(float3 pos, float2 radius)
 inline float densityFunction(float3 p)
 {	
 	float f = fbm(p * _NoiseScale);
+
+    // 半径 0.2 の急に 0.3 くらいのノイズを混ぜたもの
     float d1 = -sphere(p, 0.2) + f * 0.3;
+
+    // 内径 0.36、外径 0.46 のトーラスに 0.2 くらいのノイズを混ぜたもの
     float d2 = -torus(p, float2(0.36, 0.1)) + f * 0.2;
+
+    // 2 つのブレンド比率を 0 ~ 1 でなめらかに
     float blend = 0.5 + 0.5 * sin(_Time.z);
+
+    // 2 つの密度関数を合成
     return lerp(d1, d2, blend);
 }
 
