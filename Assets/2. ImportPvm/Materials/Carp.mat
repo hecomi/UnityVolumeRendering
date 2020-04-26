@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Carp
   m_Shader: {fileID: 4800000, guid: d055c95284dcf477e829fa7f610b5f99, type: 3}
   m_ShaderKeywords: 
@@ -55,7 +56,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Volume:
-        m_Texture: {fileID: 11700000, guid: f1575efba4a7b431794ceffc3f5015ee, type: 3}
+        m_Texture: {fileID: 4849145913767034428, guid: f1575efba4a7b431794ceffc3f5015ee,
+          type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:

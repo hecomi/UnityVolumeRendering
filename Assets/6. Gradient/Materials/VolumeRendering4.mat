@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: VolumeRendering4
   m_Shader: {fileID: 4800000, guid: 68171fb2942b24453899afe1ab89ecf4, type: 3}
   m_ShaderKeywords: _RAY_FIXED_LENGTH
@@ -23,7 +24,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Volume:
-        m_Texture: {fileID: 11700000, guid: f1575efba4a7b431794ceffc3f5015ee, type: 3}
+        m_Texture: {fileID: 4849145913767034428, guid: f1575efba4a7b431794ceffc3f5015ee,
+          type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -34,7 +36,7 @@ Material:
     - _ColorEnhance: 2.83
     - _ColorIntensity: 3
     - _Diffuse: 3.63
-    - _Intensity: 0.059
+    - _Intensity: 0.101
     - _Iteration: 200
     - _MaxX: 1
     - _MaxY: 0.886
