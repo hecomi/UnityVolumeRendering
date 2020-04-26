@@ -87,7 +87,7 @@ float4 frag(v2f i) : SV_Target
     worldPos += jitter * worldDir;
 
     float3 localPos = mul(unity_WorldToObject, float4(worldPos, 1.0));
-    float3 localDir = mul(unity_WorldToObject, worldDir);
+    float3 localDir = UnityWorldToObjectDir(worldDir);
     float3 localStep = localDir * step;
 
     float alpha = 0.0;

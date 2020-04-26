@@ -60,11 +60,11 @@ float4 frag(v2f i) : SV_Target
     float3 worldDir = normalize(worldPos - _WorldSpaceCameraPos);
 
     float3 localPos = mul(unity_WorldToObject, float4(worldPos, 1.0)).xyz;
-    float3 localDir = mul(unity_WorldToObject, worldDir);
+    float3 localDir = UnityWorldToObjectDir(worldDir);
     float3 localStep = localDir * step;
 
     float lightStep = 1.0 / _LoopLight;
-    float3 localLightDir = mul(unity_WorldToObject, _WorldSpaceLightPos0.xyz);
+    float3 localLightDir = UnityWorldToObjectDir(_WorldSpaceLightPos0.xyz);
     float3 localLightStep = localLightDir * lightStep * 0.5;
 
     float4 color = float4(_Color.rgb, 0.0);
