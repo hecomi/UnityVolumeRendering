@@ -9,7 +9,7 @@ This project includes examples of Volume Rendering in Unity. These are related m
 - [Unity でボリュームレンダリングをしてみる - vol.4 プロシージャル - 凹みTips](http://tips.hecomi.com/entry/2020/04/26/185548)
 - [Unity でボリュームレンダリングをしてみる - vol.5 遮蔽とループの最適化 - 凹みTips](http://tips.hecomi.com/entry/2020/05/27/012539)
 
-As written in the above post, volume data is not included in this project, so
+As written in the above post, volume data is not included in this project, so you have to download and import it from the following website.
 
 - [The Volume Library](http://schorsch.efi.fh-nuernberg.de/data/volume/)
 
