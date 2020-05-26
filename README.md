@@ -13,10 +13,13 @@ As written in the above post, volume data is not included in this project, so
 
 - [The Volume Library](http://schorsch.efi.fh-nuernberg.de/data/volume/)
 
-![Carp](https://raw.githubusercontent.com/wiki/hecomi/UnityVolumeRendering/carp.gif)
-![Colored carp](https://raw.githubusercontent.com/wiki/hecomi/UnityVolumeRendering/carp2.gif)
-![Density function](https://raw.githubusercontent.com/wiki/hecomi/UnityVolumeRendering/density_function.gif)
-![Occlusion](https://raw.githubusercontent.com/wiki/hecomi/UnityVolumeRendering/occlusion.gif)
+Screen Shots
+------------
+
+<img src="https://raw.githubusercontent.com/wiki/hecomi/UnityVolumeRendering/carp.gif" width="640" />
+<img src="https://raw.githubusercontent.com/wiki/hecomi/UnityVolumeRendering/carp2.gif" width="640" />
+<img src="https://raw.githubusercontent.com/wiki/hecomi/UnityVolumeRendering/density_function.gif" width="640" />
+<img src="https://raw.githubusercontent.com/wiki/hecomi/UnityVolumeRendering/occlusion.gif" width="640" />
 
 License
 -------
