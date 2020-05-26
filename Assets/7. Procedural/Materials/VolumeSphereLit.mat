@@ -21,11 +21,11 @@ Material:
     m_TexEnvs: []
     m_Floats:
     - _Absorption: 43.6
-    - _AbsorptionLight: 24.7
+    - _AbsorptionLight: 26.4
     - _Intensity: 0.1
     - _Loop: 32
     - _LoopLight: 6
     - _Opacity: 61.3
-    - _OpacityLight: 35.6
+    - _OpacityLight: 79.3
     m_Colors:
-    - _Color: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+    - _Color: {r: 0.7075472, g: 0.70379394, b: 0.67417234, a: 1}

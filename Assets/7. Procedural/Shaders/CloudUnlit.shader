@@ -83,12 +83,12 @@ float4 frag(v2f i) : SV_Target
 
     float3 worldPos = i.worldPos;
     float3 worldDir = normalize(worldPos - _WorldSpaceCameraPos);
-    float jitter = hash(worldPos.x + worldPos.y * 10 + worldPos.z * 100 + _Time.x) * step;
-    worldPos += jitter * worldDir;
 
     float3 localPos = mul(unity_WorldToObject, float4(worldPos, 1.0));
     float3 localDir = UnityWorldToObjectDir(worldDir);
     float3 localStep = localDir * step;
+    float jitter = hash(localPos.x + localPos.y * 10 + localPos.z * 100 + _Time.x);
+    localPos += jitter * localStep;
 
     float alpha = 0.0;
 

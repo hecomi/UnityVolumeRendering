@@ -20,14 +20,14 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - _Absorption: 50
-    - _AbsorptionLight: 50
-    - _LightStepScale: 0.5
+    - _Absorption: 44.3
+    - _AbsorptionLight: 46.2
+    - _LightStepScale: 0.497
     - _Loop: 32
     - _LoopLight: 6
-    - _NoiseScale: 5
-    - _Opacity: 50
-    - _OpacityLight: 50
+    - _NoiseScale: 10
+    - _Opacity: 100
+    - _OpacityLight: 93.4
     - _Radius: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.7830189, g: 0.7684994, b: 0.73131007, a: 1}
