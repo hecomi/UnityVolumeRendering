@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using UnityEditor;
-using UnityEditor.Experimental.AssetImporters;
+
 using System;
 using System.IO;
 
 // Now using PvmRawImporter2 in "6. Gradient" section.
 // [ScriptedImporter(1, "raw")]
-public class PvmRawImporter : ScriptedImporter
+public class PvmRawImporter : UnityEditor.AssetImporters.ScriptedImporter
 {
     public enum Bits
     {
@@ -76,7 +76,7 @@ public class PvmRawImporter : ScriptedImporter
         }
     }
 
-    public override void OnImportAsset(AssetImportContext ctx)
+    public override void OnImportAsset(UnityEditor.AssetImporters.AssetImportContext ctx)
     {
         try
         {

@@ -69,12 +69,14 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-# VSCode
+# Editor
 .vscode
+.idea/*
 
 # Others
 .DS_Store
 /[Ww]iki/
+Build*
 
 # Raw file is not allowed to be redistributed.
 *.raw

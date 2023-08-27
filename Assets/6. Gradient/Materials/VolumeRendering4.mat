@@ -28,6 +28,7 @@ Material:
           type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _AlphaIntensity: 0.05
     - _Ambient: 0.198
@@ -47,3 +48,4 @@ Material:
     - _RAY: 1
     - _Shadow: 2.2
     m_Colors: []
+  m_BuildTextureStacks: []

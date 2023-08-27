@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using UnityEditor;
-using UnityEditor.Experimental.AssetImporters;
+
 using System;
 using System.IO;
 
-[ScriptedImporter(1, "raw")]
-public class PvmRawImporter2 : ScriptedImporter
+[UnityEditor.AssetImporters.ScriptedImporter(1, "raw")]
+public class PvmRawImporter2 : UnityEditor.AssetImporters.ScriptedImporter
 {
     public enum Bits
     {
@@ -43,7 +43,7 @@ public class PvmRawImporter2 : ScriptedImporter
         }
     }
 
-    public override void OnImportAsset(AssetImportContext ctx)
+    public override void OnImportAsset(UnityEditor.AssetImporters.AssetImportContext ctx)
     {
         try
         {
