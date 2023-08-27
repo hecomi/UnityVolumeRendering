@@ -1,4 +1,4 @@
-﻿Shader "CloudLitInnerVolume"
+﻿Shader "CloudLitInsideVolume"
 {
 
 Properties

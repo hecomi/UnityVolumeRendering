@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CloudLitInnerVolume
+  m_Name: CloudLitInsideVolume
   m_Shader: {fileID: 4800000, guid: 6883a3c5b89f242fb9410e9da8215083, type: 3}
   m_ShaderKeywords: DEBUG_RENDER_LOOP
   m_LightmapFlags: 4
